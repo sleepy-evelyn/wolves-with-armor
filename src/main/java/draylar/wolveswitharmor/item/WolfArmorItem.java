@@ -1,7 +1,6 @@
 package draylar.wolveswitharmor.item;
 
 import draylar.wolveswitharmor.WolvesWithArmor;
-import draylar.wolveswitharmor.data.WolfArmorData;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
@@ -19,22 +18,22 @@ import java.util.List;
 
 public class WolfArmorItem extends Item {
 
+    private final String type;
     private final int bonus;
     private final Identifier entityTexture;
-    private final WolfArmorData data;
 
-    public WolfArmorItem(WolfArmorData data) {
-        super(new Item.Settings().maxCount(1).group(ItemGroup.COMBAT));
-        this.bonus = data.getBonus();
-        this.data = data;
-        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");
+    public WolfArmorItem(String type, int bonus) {
+        super(new Item.Settings().maxCount(1));
+        this.type = type;
+        this.bonus = bonus;
+        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + type + ".png");
     }
 
-    public WolfArmorItem(WolfArmorData data, boolean isFireproof) {
-        super(new Item.Settings().maxCount(1).group(ItemGroup.COMBAT).fireproof());
-        this.bonus = data.getBonus();
-        this.data = data;
-        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + data.getName() + ".png");
+    public WolfArmorItem(String type, int bonus, boolean fireproof) {
+        super(new Item.Settings().maxCount(1).fireproof());
+        this.type = type;
+        this.bonus = bonus;
+        this.entityTexture = WolvesWithArmor.id("textures/entity/wolf/armor/wolf_armor_" + type + ".png");
     }
 
     @Environment(EnvType.CLIENT)
@@ -59,5 +58,13 @@ public class WolfArmorItem extends Item {
         if(stack.hasEnchantments()) {
             tooltip.add(Text.of(""));
         }
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getBonus() {
+        return bonus;
     }
 }

@@ -55,7 +55,6 @@ public abstract class WolfEntityMixin extends TameableEntity implements WolfData
         if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireproof()) {
             return;
         }
-
         super.setOnFireFor(seconds);
     }
 
@@ -65,7 +64,6 @@ public abstract class WolfEntityMixin extends TameableEntity implements WolfData
         if(armor != null && armor.getItem() instanceof WolfArmorItem && armor.getItem().isFireproof()) {
             return true;
         }
-
         return super.isFireImmune();
     }
 
@@ -75,7 +73,7 @@ public abstract class WolfEntityMixin extends TameableEntity implements WolfData
     private void dropArmorOnDeath(DamageSource source, CallbackInfo ci) {
         ItemStack armor = getWolfArmor();
         if(!armor.isEmpty()) {
-            ItemScatterer.spawn(world, getX(), getY(), getZ(), armor);
+            ItemScatterer.spawn(getWorld(), getX(), getY(), getZ(), armor);
         }
     }
 

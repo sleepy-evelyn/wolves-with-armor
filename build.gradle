@@ -26,8 +26,8 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // External dependencies for mod compatibility
-    modImplementation include('com.github.Draylar:static-content:1.0.1')
-    modImplementation include ("com.github.Draylar:maybe-data:${project.maybe_data_version}")
+    //modImplementation include('com.github.Draylar:static-content:1.0.1')
+    //modImplementation include ("com.github.Draylar:maybe-data:${project.maybe_data_version}")
 }
 
 processResources {

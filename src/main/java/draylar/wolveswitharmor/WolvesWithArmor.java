@@ -1,9 +1,8 @@
 package draylar.wolveswitharmor;
 
-import draylar.staticcontent.StaticContent;
-import draylar.wolveswitharmor.data.WolfArmorData;
 import draylar.wolveswitharmor.impl.WolfDataAccessor;
 import draylar.wolveswitharmor.impl.WolfInteractionHandler;
+import draylar.wolveswitharmor.registry.WWAItems;
 import draylar.wolveswitharmor.registry.WWASounds;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
@@ -14,7 +13,7 @@ public class WolvesWithArmor implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        StaticContent.load(id("wolf_armor"), WolfArmorData.class);
+        WWAItems.initialize();
         UseEntityCallback.EVENT.register(new WolfInteractionHandler());
         WWASounds.initialize();
     }

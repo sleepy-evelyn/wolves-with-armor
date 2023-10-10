@@ -1,9 +1,10 @@
 package draylar.wolveswitharmor.registry;
 
 import draylar.wolveswitharmor.WolvesWithArmor;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class WWASounds {
 
@@ -11,10 +12,8 @@ public class WWASounds {
 
     private static SoundEvent register(String name) {
         Identifier id = WolvesWithArmor.id(name);
-        return  Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));
+        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 
-    public static void initialize() {
-
-    }
+    public static void initialize() {}
 }

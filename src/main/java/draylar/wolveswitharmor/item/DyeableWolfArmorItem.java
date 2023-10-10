@@ -1,16 +1,15 @@
 package draylar.wolveswitharmor.item;
 
-import draylar.wolveswitharmor.data.WolfArmorData;
 import net.minecraft.item.DyeableItem;
 
 public class DyeableWolfArmorItem extends WolfArmorItem implements DyeableItem {
 
-    public DyeableWolfArmorItem(WolfArmorData data) {
-        super(data);
+    public DyeableWolfArmorItem(String type, int bonus) {
+        super(type, bonus);
     }
 
-    public DyeableWolfArmorItem(WolfArmorData data, boolean fireproof) {
-        super(data, fireproof);
+    public DyeableWolfArmorItem(String type, int bonus, boolean fireproof) {
+        super(type, bonus, fireproof);
     }
 }
 
